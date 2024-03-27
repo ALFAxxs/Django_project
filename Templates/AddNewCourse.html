@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+    <title>AddNewCourse</title>
+</head>
+<body>
+    <form method="post">
+    <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+
+    <h1>New course</h1>
+    <h3>Title:</h3><input name="Title" placeholder="write course title"/>
+    <h3>Description:</h3><input name="Description" placeholder="description about course"/>
+    <h3>Course days:</h3><input name="Course_Days" placeholder="Mark course days">
+    <h3>Course Price</h3><input type="number" min="0" max="10000" step="1" name="CoursePrice" id="CoursePrice" required="required">
+        <button type="submit" id="submit">Submit</button>
+        </form>
+</body>
+</html>

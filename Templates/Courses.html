@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ti-icons@0.1.2/css/themify-icons.css">
+    <style>
+        /* Add your custom CSS styles here */
+        /* For demonstration purpose, I'll just provide basic styling */
+        .single_course {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-right: 20px;
+        }
+        .course_head img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .course_content {
+            padding: 10px 0;
+        }
+        .price {
+            background-color: #007bff;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .tag {
+            background-color: #28a745;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="popular_courses">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-5">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="owl-carousel active_course owl-loaded owl-drag">
+                        <div class="owl-stage-outer">
+                            <div class="owl-stage">
+                                {% for course in courses %}
+                                <div class="owl-item">
+                                    <div class="single_course">
+                                        <div class="course_head">
+                                            <img class="rounded" src="https://www.bootdey.com/image/350x280/FFB6C1/000000" alt="" />
+                                        </div>
+                                        <div class="course_content">
+                                            <span class="price">${{ course.CoursePrice }}</span>
+
+                                            <h4 class="mb-3">
+                                                <a href="#">{{ course.Title }}</a>
+                                            </h4>
+                                            <p>
+                                                {{ course.Description }}
+                                            </p>
+                                            <div class="button">
+                                                <a href= "/kursgayozil/" type="button" id="sign-up">Kursga yozilish</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    </div>
+                                {% endfor %}
+                                <!-- Add more .owl-item for additional courses -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous"></script>
+    <script>
+        // Initialize Owl Carousel
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 3
+                },
+                1000: {
+                    items: 5
+                }
+            }
+        });
+    </script>
+</body>
+</html>

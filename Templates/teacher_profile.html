@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>
+              <p>  {{user.first_name}} {{user.last_name}} </p>
+
+        </h1>
+
+    </header>
+    <main>
+        <section id="personal-info">
+            <h2>Personal Information</h2>
+            <ul>
+                <li><strong>Username: </strong>{{ user.username }}
+                </li>
+                <li><strong>Email:</strong> {{ user.email }}
+
+                </li>
+                <!-- Add more personal information fields as needed -->
+            </ul>
+            <div class="button">
+                <a href= "/AddNewCourse/" type="button" id="NewCourse">Add New Course</a>
+            </div>
+        </section>
+        <section id="enrolled-courses">
+            <h2>Enrolled Courses</h2>
+            <ul>
+                {% if enrolled_courses %}
+                    {% for course in enrolled_courses %}
+                        <li>{{ course.title }} - {{ course.description }}</li>
+                        <!-- Add more course details as needed -->
+                    {% endfor %}
+                {% else %}
+                    <li>No courses enrolled.</li>
+                {% endif %}
+            </ul>
+            <!-- Add a button to allow users to add a new course -->
+
+<!--            <button onclick="location.href='/add_course'">Add New Course</button>-->
+        </section>
+    </main>
+    <footer>
+        <!-- Add footer content if needed -->
+    </footer>
+</body>
+</html>
