@@ -38,50 +38,73 @@
             bottom: 0;
             width: 100%;
         }
+        .head-box {
+            background-color: #f0f0f0; /* Background color */
+            padding: 20px; /* Padding around the content */
+            border-bottom: 2px solid #ccc; /* Bottom border */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+        }
+        .head-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex; /* Make the links display in a row */
+        }
+        .head-box li {
+            margin-right: 20px; /* Add space between the links */
+        }
+        .head-box li:last-child {
+            margin-right: 0; /* Remove margin from the last link */
+        }
+        .head-box li a {
+            text-decoration: none;
+            color: #333; /* Link color */
+        }
     </style>
 </head>
 <body>
+<div class="head-box">
+        <ul>
+            <li><a href="/home/">Bosh sahifa</a></li>
+            <li><a href="/Coursesview">Kurslar</a></li>
+        </ul>
+    </div>
+        <br>
     <header>
         <h1>
-              <p>  {{user.first_name}} {{user.last_name}} </p>
+              <p>  {{profile.first_name}} {{profile.last_name}} </p>
 
         </h1>
 
     </header>
     <main>
         <section id="personal-info">
-            <h2>Personal Information</h2>
+            <h2>Shaxsiy m'alumot</h2>
             <ul>
-                <li><strong>Username: </strong>{{ user.username }}
+                <li><strong>Username: </strong>{{ profile.username }}
                 </li>
-                <li><strong>Email:</strong> {{ user.email }}
+                <li><strong>Email Manzil:</strong> {{ profile.email }}
 
                 </li>
                 <!-- Add more personal information fields as needed -->
             </ul>
             <div class="button">
-                <a href= "/AddNewCourse/" type="button" id="NewCourse">Add New Course</a>
+                <a href= "/AddNewCourse/{{profile.id}}/" type="button" id="NewCourse">Yangi kurs qo'shish</a>
             </div>
         </section>
         <section id="enrolled-courses">
-            <h2>Enrolled Courses</h2>
-            <ul>
-                {% if enrolled_courses %}
-                    {% for course in enrolled_courses %}
-                        <li>{{ course.title }} - {{ course.description }}</li>
-                        <!-- Add more course details as needed -->
+            <h2>Sizning kurslaringiz</h2>
+             <ul>
+                 {% if courses %}
+                    {% for course in courses %}
+                     <li>Kurs nomi: {{ course.Title }}</li>
+                    <br>
                     {% endfor %}
-                {% else %}
-                    <li>No courses enrolled.</li>
-                {% endif %}
+                 {% else %}
+                    <li>Sizda qo'shilgan kurslar mavjud emas</li>-->
+             {% endif %}
             </ul>
-            <!-- Add a button to allow users to add a new course -->
-
-<!--            <button onclick="location.href='/add_course'">Add New Course</button>-->
         </section>
     </main>
-    <footer>
-        <!-- Add footer content if needed -->
-    </footer>
 </body>
 </html>

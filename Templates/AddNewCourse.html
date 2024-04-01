@@ -1,19 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-     <meta charset="UTF-8">
-    <title>AddNewCourse</title>
+<meta charset="utf-8">
+
+
+<title>AddNewCourse</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<style type="text/css">
+    	body{
+    margin-top:20px;
+    background-color: #f2f3f8;
+}
+.card {
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 15px 1px rgba(52,40,104,.08);
+}
+
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #e5e9f2;
+    border-radius: .2rem;
+}
+    </style>
 </head>
 <body>
-    <form method="post">
+
+<form method="post">
     <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
 
-    <h1>New course</h1>
-    <h3>Title:</h3><input name="Title" placeholder="write course title"/>
-    <h3>Description:</h3><input name="Description" placeholder="description about course"/>
-    <h3>Course days:</h3><input name="Course_Days" placeholder="Mark course days">
-    <h3>Course Price</h3><input type="number" min="0" max="10000" step="1" name="CoursePrice" id="CoursePrice" required="required">
-        <button type="submit" id="submit">Submit</button>
-        </form>
+<div class="container h-100">
+<div class="row h-100">
+<div class="col-sm-10 col-md-8 col-lg-6 mx-auto d-table h-100">
+<div class="d-table-cell align-middle">
+<div class="text-center mt-4">
+<h1 class="h2">Yangi kurs qoshish</h1>
+<p class="lead">
+    Siz quidagi kursni ro'yxatga olish maydonini so'ralganday to'g'izish orqali yangi kurs qo'shishingiz mumkin
+</p>
+</div>
+<div class="card">
+<div class="card-body">
+<div class="m-sm-4">
+<form>
+<div class="form-group">
+<label>Kurs Nomi</label>
+<input class="form-control form-control-lg" type="text" name="Title" placeholder="Nomi">
+</div>
+<div class="form-group">
+<label>Kurs haqida to'liq</label>
+<textarea class="form-control form-control-lg" type="text" name="Description" placeholder="To'liq yozish uchun"></textarea>
+</div>
+<div class="form-group">
+<label>Kurs kuni</label>
+     <p>
+ <label><input type="checkbox" name="Course_Days" value="Monday"> Monday</label><br>
+        <label><input type="checkbox" name="Course_Days" value="Tuesday"> Tuesday</label><br>
+        <label><input type="checkbox" name="Course_Days" value="Wednesday"> Wednesday</label><br>
+        <label><input type="checkbox" name="Course_Days" value="Thursday"> Thursday</label><br>
+        <label><input type="checkbox" name="Course_Days" value="Friday"> Friday</label><br>
+        <label><input type="checkbox" name="Course_Days" value="Saturday"> Saturday</label><br>
+        <label><input type="checkbox" name="Course_Days" value="Sunday"> Sunday</label><br>
+        <label><input type="checkbox" name="Course_Days" value="Free"> Free</label><br>
+    </p>
+</div>
+<div class="form-group">
+<label>Kurs Narxi</label>
+<input type="number" min="0" max="10000" step="1" name="CoursePrice" id="CoursePrice" required="required">
+
+</div>
+
+<div class="text-center mt-3">
+<button type="submit" id="submit" class="btn btn-lg btn-primary">Jo'natish</button>
+
+</div>
+    </form>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript">
+
+</script>
 </body>
 </html>

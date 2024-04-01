@@ -38,9 +38,38 @@
             bottom: 0;
             width: 100%;
         }
+        .head-box {
+            background-color: #f0f0f0; /* Background color */
+            padding: 20px; /* Padding around the content */
+            border-bottom: 2px solid #ccc; /* Bottom border */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
+        }
+        .head-box ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex; /* Make the links display in a row */
+        }
+        .head-box li {
+            margin-right: 20px; /* Add space between the links */
+        }
+        .head-box li:last-child {
+            margin-right: 0; /* Remove margin from the last link */
+        }
+        .head-box li a {
+            text-decoration: none;
+            color: #333; /* Link color */
+        }
     </style>
 </head>
 <body>
+<div class="head-box">
+        <ul>
+            <li><a href="/home/">Bosh sahifa</a></li>
+            <li><a href="/Coursesview">Kurslar</a></li>
+        </ul>
+    </div>
+        <br>
     <header>
         <h1>
               <p>  {{student.first_name}} {{student.last_name}} </p>
@@ -50,41 +79,33 @@
     </header>
     <main>
         <section id="personal-info">
-            <h2>Personal Information</h2>
+            <h2>Shaxsiy malumotlar</h2>
+            <br>
             <ul>
                 <li><strong>Username:</strong>
                     <h1>
                        <p> {{ student.username }} </p>
-<!--                        <p>yil: {{i.date_joined}}</p>-->
-
                         </h1>
                 </li>
-                <li><strong>Email:</strong> {{ student.email }}
+                <li><strong>Email manzil:</strong> {{ student.email }}
                     <h1>
                        <p> {{ student.email }} </p>
-
                         </h1>
                 </li>
-                <!-- Add more personal information fields as needed -->
             </ul>
         </section>
         <section id="enrolled-courses">
-            <h2>Enrolled Courses</h2>
-            <ul>
-                {% if enrolled_courses %}
-                    {% for course in enrolled_courses %}
-                        <li>{{ course.title }} - {{ course.description }}</li>
-                        <!-- Add more course details as needed -->
-                    {% endfor %}
-                {% else %}
-                    <li>No courses enrolled.</li>
-                {% endif %}
-            </ul>
-<!--            <button onclick="location.href='/add_course'">Add New Course</button>-->
-        </section>
+    <h2>Sizning kurslaringiz</h2>
+    <ul>
+        {% if enrolled_courses %}
+            {% for enrollment in enrolled_courses %}
+                <li>{{ enrollment.course_id.Title }}</li>
+            {% endfor %}
+        {% else %}
+            <li>Kurs mavjud emas</li>
+        {% endif %}
+    </ul>
+</section>
     </main>
-    <footer>
-        <!-- Add footer content if needed -->
-    </footer>
 </body>
 </html>

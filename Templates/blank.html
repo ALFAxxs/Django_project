@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>kurslar ro'yxati</title>
     <style>
         .single_course {
             border: 1px solid #ccc;
@@ -49,13 +49,6 @@
     </style>
 </head>
 <body>
-<div class="head-box">
-        <ul>
-            <li><a href="/home/">Bosh sahifa</a></li>
-            <li><a href="/login/">kirish</a></li>
-        </ul>
-    </div>
-        <br>
     <div class="popular_courses">
         <div class="container">
             <div class="row justify-content-center">
@@ -71,17 +64,12 @@
                                 <div class="owl-item">
                                     <div class="single_course">
                                         <div class="course_head">
-                                            <img class="rounded" src="https://www.bootdey.com/image/350x280/FFB6C1/000000" alt="" />
-                                        </div>
                                         <div class="course_content">
                                             <span class="price">${{ course.CoursePrice }}</span>
 
                                             <h4 class="mb-3">
                                                 <a href="/CourseDescription/{{ course.ID }}/">{{ course.Title }}</a>
                                             </h4>
-                                            <div class="button">
-                                                <a href= "/success/" type="button" id="sign-up">Kursga yozilish</a>
-                                        </div>
                                     </div>
                                 </div>
 
